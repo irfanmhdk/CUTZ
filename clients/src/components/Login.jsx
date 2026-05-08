@@ -63,14 +63,14 @@ const Login = ({ setShowLogin }) => {
                     // LOGIKA REDIRECT BERDASARKAN ROLE
                     if (userRole === 'Admin' || userRole === 'Owner') {
                         alert(`Welcome Admin, ${data.user.Nama}!`);
-                        window.location.href = '/admin'; // Hard refresh ke dashboard admin
+                        window.location.href = '/cutz/admin'; // Hard refresh ke dashboard admin
                     } else if (userRole === 'Barber') {
                         alert(`Welcome Kapster, ${data.user.Nama}!`);
                         // Gunakan href agar App.jsx membaca ulang localStorage yang berisi Barbers_id
-                        window.location.href = '/#bookings';
+                        window.location.href = '/cutz/#bookings';
                     } else {
                         alert(`Welcome back, ${data.user.Nama}!`);
-                        window.location.href = '/';
+                        window.location.href = '/cutz/';
                     }
                 } else {
                     alert("Registrasi Berhasil! Silahkan Login.");
