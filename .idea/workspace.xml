@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89dac95c-3632-40d5-856b-7ae1b042f8a0" name="Changes" comment="" />
+    <list default="true" id="89dac95c-3632-40d5-856b-7ae1b042f8a0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/clients/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compos.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compos.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +22,9 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///JetClient Request Console" root0="SKIP_INSPECTION" />
@@ -41,6 +49,8 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "E:/PBL - Mahar/CUTZ/backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -153,7 +163,8 @@
       <workItem from="1777942285895" duration="20766000" />
       <workItem from="1778028723756" duration="22045000" />
       <workItem from="1778115791967" duration="21955000" />
-      <workItem from="1778202284742" duration="4200000" />
+      <workItem from="1778202284742" duration="5137000" />
+      <workItem from="1778210363731" duration="667000" />
     </task>
     <servers />
   </component>

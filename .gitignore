@@ -1,0 +1,18 @@
+# Mengabaikan semua node_modules di folder mana pun (utama, backend, atau clients)
+node_modules/
+
+# Mengabaikan file environment yang berisi password/api key
+.env
+.env.local
+
+# Mengabaikan hasil build frontend (folder dist biasanya di Vite, build di CRA)
+dist/
+build/
+
+# Mengabaikan file log
+*.log
+npm-debug.log*
+
+# Mengabaikan file sistem
+.DS_Store
+Thumbs.db
