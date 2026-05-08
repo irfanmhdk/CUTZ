@@ -1,0 +1,25 @@
+services:
+  # FRONTEND (Akses via browser: http://localhost)
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"  # Port 80 di luar dipetakan ke port 80 di dalam Nginx
+    depends_on:
+      - backend
+    restart: always
+
+  # BACKEND (Akses via browser/Postman: http://localhost:4000)
+  backend:
+    build: ./backend
+    ports:
+      - "4000:4000" # Port 4000 di luar ke port 4000 di dalam Express
+    environment:
+      - PORT=4000
+      - NODE_ENV=production
+      # Jika pakai DB, tambahkan di sini
+    restart: always
+
+  # (Opsional) DATABASE
+  # db:
+  #   image: mysql:8 (atau postgres)
+  #   ...

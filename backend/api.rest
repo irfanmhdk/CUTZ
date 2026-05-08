@@ -1,0 +1,65 @@
+@baseUrl = http://localhost:4000/api
+
+### BARBERSHOP
+GET {{baseUrl}}/barbershop
+###
+
+GET {{baseUrl}}/barbershop/cutz
+###
+
+POST {{baseUrl}}/barbershop
+Content-Type: application/json
+
+{
+  "hari": "selasa",
+  "jam_buka": "09:00",
+  "jam_tutup": "17:00",
+  "is_tutup": "0"
+}
+###
+
+DELETE {{baseUrl}}/barbershop/selasa
+###
+
+PUT {{baseUrl}}/barbershop/senin
+Content-Type: application/json
+
+{
+  "hari": "senin",
+  "jam_buka": "09:00",
+  "jam_tutup": "17:00",
+  "is_tutup": "0"
+}
+### END BARBERSHOP
+
+### Jadwal
+GET {{baseUrl}}/jadwal
+###
+
+GET {{baseUrl}}/jadwal/senin
+###
+
+POST {{baseUrl}}/jadwal
+Content-Type: application/json
+
+{
+  "hari": "selasa",
+  "jam_buka": "09:00",
+  "jam_tutup": "17:00",
+  "is_tutup": "0"
+}
+###
+
+DELETE {{baseUrl}}/jadwal/selasa
+###
+
+PUT {{baseUrl}}/jadwal/senin
+Content-Type: application/json
+
+{
+  "hari": "senin",
+  "jam_buka": "09:00",
+  "jam_tutup": "17:00",
+  "is_tutup": "0"
+}
+### END JADWAL

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="89dac95c-3632-40d5-856b-7ae1b042f8a0" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JSX File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///JetClient Request Console" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="3Ck5YbmC2IoXdYx9RCprbC0uHf4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "HTTP Request.api | #1.executor": "Run",
+    "HTTP Request.api | #2.executor": "Run",
+    "HTTP Request.api | #3.executor": "Run",
+    "HTTP Request.api | #4.executor": "Run",
+    "HTTP Request.api | #5.executor": "Run",
+    "HTTP Request.api | #6.executor": "Run",
+    "HTTP Request.api | Ambil Semua Jadwal.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "last_opened_file_path": "E:/PBL - Mahar/CUTZ/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "npm.start.executor": "Run",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="ReactDesignerToolWindowState">
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.intellij.reactbuddy.reactComponents" value="false" />
+        <entry key="com.intellij.reactbuddy.reactInspector" value="false" />
+        <entry key="com.intellij.reactbuddy.storybook" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\PBL - Mahar\CUTZ\backend" />
+      <recent name="E:\PBL - Mahar\CUTZ\clients\src\assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\PBL - Mahar\CUTZ\backend\public" />
+      <recent name="E:\PBL - Mahar\CUTZ\backend\config" />
+      <recent name="E:\PBL - Mahar\CUTZ\clients\src" />
+      <recent name="E:\PBL - Mahar\CUTZ\backend" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationStatuses">
+      <map>
+        <entry key="HttpClient.HttpRequestRunConfigurationType">
+          <value>
+            <map>
+              <entry key="api | #2" value="STOPPED" />
+              <entry key="api | Ambil Semua Jadwal" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="HTTP Request.api | #2">
+    <configuration name="api | Ambil Semua Jadwal" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/api.rest" executionIdentifier="Ambil Semua Jadwal" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="api | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/api.rest" executionIdentifier="#2" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="api | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/api.rest" executionIdentifier="#3" index="3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="api | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/api.rest" executionIdentifier="#4" index="4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="api | #6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/api.rest" executionIdentifier="#6" index="6" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.api | #2" />
+        <item itemvalue="HTTP Request.api | Ambil Semua Jadwal" />
+        <item itemvalue="HTTP Request.api | #3" />
+        <item itemvalue="HTTP Request.api | #6" />
+        <item itemvalue="HTTP Request.api | #4" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.26830.93" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="89dac95c-3632-40d5-856b-7ae1b042f8a0" name="Changes" comment="" />
+      <created>1776916777531</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1776916777531</updated>
+      <workItem from="1776916779509" duration="2356000" />
+      <workItem from="1776919180114" duration="10000" />
+      <workItem from="1776919216637" duration="6161000" />
+      <workItem from="1776927727948" duration="34000" />
+      <workItem from="1776927828767" duration="6000" />
+      <workItem from="1776927948984" duration="18000" />
+      <workItem from="1776928092903" duration="253000" />
+      <workItem from="1776929291209" duration="2366000" />
+      <workItem from="1776992574398" duration="9921000" />
+      <workItem from="1777012387672" duration="7433000" />
+      <workItem from="1777252000794" duration="18685000" />
+      <workItem from="1777338260483" duration="9750000" />
+      <workItem from="1777355962155" duration="7193000" />
+      <workItem from="1777424036140" duration="16561000" />
+      <workItem from="1777510216690" duration="15947000" />
+      <workItem from="1777856609712" duration="22796000" />
+      <workItem from="1777942285895" duration="20766000" />
+      <workItem from="1778028723756" duration="22045000" />
+      <workItem from="1778115791967" duration="21955000" />
+      <workItem from="1778202284742" duration="4200000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/clients/src/components/Kontak.jsx</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

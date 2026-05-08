@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cutz Barbershop - Admin Jadwal</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .table thead th {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+        }
+        .btn-primary {
+            background-color: #2c3e50;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #34495e;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-dark">Cutz Manager ✂️</h1>
+        <p class="text-muted">Kelola jadwal operasional barbershop Anda dengan mudah</p>
+    </div>
+
+    <!--BARBERSHOP-->
+    <div class="card p-4 my-5">
+        <div class="d-md-flex justify-content-between align-items-center mb-4">
+            <h4 class="fw-semibold mb-3 mb-md-0">Daftar Barbershop 💈</h4>
+            <button class="btn btn-primary btn-sm" onclick="showBarberForm()">+ Tambah Cabang</button>
+        </div>
+
+        <!-- Form Tambah/Edit (Hidden by default) -->
+        <div id="barberFormContainer" class="mb-4 shadow-sm p-3 bg-light rounded" style="display: none;">
+            <form id="barberForm">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Nama Barbershop</label>
+                        <input type="text" id="namaBarber" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">No. HP</label>
+                        <input type="text" id="hpBarber" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Owner ID (Users_id)</label>
+                        <input type="number" id="userIdBarber" class="form-control" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Alamat Lengkap</label>
+                        <textarea id="alamatBarber" class="form-control" rows="2" required></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" id="submitBarber" class="btn btn-success btn-sm">Simpan</button>
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="hideBarberForm()">Batal</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="table-responsive">
+            <div class="col-md-4">
+                <input type="text" id="searchb" class="form-control mb-3" placeholder="🔍 Cari Barbershop...">
+            </div>
+
+            <table id="barberTable" class="table table-hover align-middle">
+                <thead class="table-dark">
+                <tr>
+                    <th>Barbershop</th>
+                    <th>Owner</th>
+                    <th>No. HP</th>
+                    <th>Alamat</th>
+                    <th class="text-center">Aksi</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <!--END BARBERSHOP-->
+
+    <!--USERS-->
+    <div class="card p-4 my-5">
+        <div class="d-md-flex justify-content-between align-items-center">
+            <h4 class="fw-semibold mb-3 mb-md-0">Daftar Pengguna 👥</h4>
+            <button class="btn btn-primary btn-sm" onclick="showUserForm()">+ Tambah User</button>
+        </div>
+
+        <!-- Form Tambah/Edit User (Hidden by Default) -->
+        <div id="userFormContainer" class="my-3 shadow-sm p-3 bg-light rounded" style="display: none;">
+            <form id="userForm">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Nama Lengkap</label>
+                        <input type="text" id="userName" class="form-control" placeholder="Masukkan nama" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="userEmail" class="form-control" placeholder="contoh@mail.com" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="userPw" class="form-control" placeholder="***" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Role</label>
+                        <select id="userRole" class="form-select">
+                            <option value="Admin">Admin</option>
+                            <option value="Barber">Kapster</option>
+                            <option value="Owner">Owner</option>
+                            <option value="Customer">Customer</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6" id="barbershopSelectContainer" style="display: none;">
+                        <label class="form-label fw-bold">Penempatan Barbershop</label>
+                        <select id="userBarbershopId" class="form-select">
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" id="submitUserBtn" class="btn btn-success btn-sm">Simpan User</button>
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="hideUserForm()">Batal</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Tabel Daftar User -->
+        <div class="table-responsive bg-white p-3 rounded shadow-sm">
+            <div class="col-md-4">
+                <input type="text" id="searchu" class="form-control mb-3" placeholder="🔍 Cari User...">
+            </div>
+            <table class="table table-hover align-middle" id="userTable">
+                <thead class="table-light">
+                <tr>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th class="text-center">Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Data akan diisi oleh JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--END USERS-->
+
+    <!--BARBERS/KAPSTER-->
+    <div class="card p-4 my-5">
+        <div class="d-md-flex justify-content-between align-items-center">
+            <h4 class="fw-semibold mb-3 mb-md-0">Daftar Kapster 🤵</h4>
+        </div>
+
+        <!-- Form Manajemen Barber -->
+        <div id="barberDetailFormContainer" class="card shadow-sm mb-4" style="display: none;">
+            <div class="card-header bg-dark text-white">Form Detail Barber</div>
+            <div class="card-body">
+                <form id="barberDetailForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Penempatan Barbershop</label>
+                            <select id="kaps" class="form-select">
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Status Kerja</label>
+                            <select id="statusBarber" class="form-select">
+                                <option value="Aktif">Aktif</option>
+                                <option value="Tidak Aktif">Tidak Aktif</option>
+                                <option value="Libur">Libur</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Pendapatan</label>
+                            <input type="number" id="pendapatanBarber" class="form-control"
+                                   step="0.1" min="0" max="100" placeholder="Contoh: 10.5">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <button type="submit" class="btn btn-primary btn-sm">Update Detail</button>
+                            <button type="button" onclick="hideBarberDetailForm()" class="btn btn-light btn-sm">Batal</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Tabel Data Barber -->
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="col-md-4">
+                    <input type="text" id="searchk" class="form-control mb-3" placeholder="🔍 Cari Kapster...">
+                </div>
+
+                <table class="table table-hover" id="barberDetailTable">
+                    <thead class="table-light">
+                    <tr>
+                        <th>Kapster</th>
+                        <th>Penempatan</th>
+                        <th>Pendapatan</th>
+                        <th>Status</th>
+                        <th class="text-center">Aksi</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Data dari JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--END BARBERS/KAPSTER-->
+
+    <!--JADWAL-->
+    <div class="row justify-content-center">
+        <!-- Section Form -->
+        <div class="col-lg-10 mb-4">
+            <div class="card p-4">
+                <h4 class="mb-4 fw-semibold"><i class="bi bi-calendar-plus me-2"></i>Tambah / Update Jadwal</h4>
+                <form id="jadwalForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Hari</label>
+                            <input type="text" id="hariInput" class="form-control" placeholder="Contoh: Senin" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Status Operasional</label>
+                            <select id="isTutupInput" class="form-select">
+                                <option value="0">Buka</option>
+                                <option value="1">Tutup/Libur</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Jam Buka</label>
+                            <input type="time" id="bukaInput" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Jam Tutup</label>
+                            <input type="time" id="tutupInput" class="form-control">
+                        </div>
+                        <div class="col-12 mt-4">
+                            <button type="submit" class="btn btn-save btn-primary w-100 py-2 fw-bold">Simpan ke Database</button>
+                            <button type="button" id="btnBatal" onclick="resetForm()" class="btn btn-secondary w-100 mt-2" style="display: none;">Batal Edit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Section Table -->
+        <div class="col-lg-10">
+            <div class="card p-4">
+                <div class="d-md-flex justify-content-between align-items-center mb-4">
+                    <h4 class="fw-semibold mb-3 mb-md-0">Jadwal Saat Ini</h4>
+                    <div class="col-md-4">
+                        <input type="text" id="search" class="form-control" placeholder="🔍 Cari hari...">
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="jadwalTable" class="table table-hover align-middle">
+                        <thead>
+                        <tr>
+                            <th>Barbershop</th>
+                            <th>Hari</th>
+                            <th>Jam Operasional</th>
+                            <th>Status</th>
+                            <th class="text-center">Aksi</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Data akan diisi oleh script.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END JADWAL-->
+
+    <!--SERVICES-->
+    <div class="card p-4 my-5">
+        <div class="d-md-flex justify-content-between align-items-center mb-4">
+            <h4 class="fw-semibold mb-3 mb-md-0">Daftar Layanan & Harga 💇‍♂️</h4>
+            <button class="btn btn-primary btn-sm" onclick="showServiceForm()">+ Tambah Layanan</button>
+        </div>
+
+        <!-- Form Tambah/Edit Service -->
+        <div id="serviceFormContainer" class="mb-4 shadow-sm p-3 bg-light rounded" style="display: none;">
+            <form id="serviceForm">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Pilih Cabang</label>
+                        <select id="serviceBarbershopId" class="form-select" required></select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Nama Layanan</label>
+                        <input type="text" id="namaJasa" class="form-control" placeholder="Contoh: Haircut Premium" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Harga (Rp)</label>
+                        <input type="number" id="hargaJasa" class="form-control" placeholder="50000" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Estimasi Durasi (Menit)</label>
+                        <input type="number" id="estimasiJasa" class="form-control" placeholder="30" required>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" id="submitService" class="btn btn-success btn-sm">Simpan Layanan</button>
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="hideServiceForm()">Batal</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="table-responsive">
+            <div class="col-md-4">
+                <input type="text" id="searchs" class="form-control mb-3" placeholder="🔍 Cari nama layanan...">
+            </div>
+
+            <table id="serviceTable" class="table table-hover align-middle">
+                <thead class="table-dark">
+                <tr>
+                    <th>Layanan</th>
+                    <th>Cabang</th>
+                    <th>Harga</th>
+                    <th>Estimasi</th>
+                    <th class="text-center">Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Data dari JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--END SERVICES-->
+
+    <!--BOOKINGS-->
+    <div class="card p-4 my-5 border-start border-4 border-dark shadow">
+        <h4 class="fw-bold mb-4">Buat Reservasi Baru 📅</h4>
+        <form id="bookingForm">
+            <div class="row g-3">
+                <!-- 1. Pilih Layanan (Selalu Muncul) -->
+                <div class="col-md-12">
+                    <label class="form-label fw-bold">1. Pilih Layanan Jasa</label>
+                    <select id="bookService" class="form-select form-select-lg" required>
+                        <option value="">-- Pilih Layanan --</option>
+                    </select>
+                </div>
+
+                <!-- 2. Pilih Kapster (Otomatis Muncul setelah Layanan dipilih) -->
+                <div id="kapsterSection" class="col-md-6" style="display: none;">
+                    <label class="form-label fw-bold">2. Pilih Kapster</label>
+                    <select id="bookBarber" class="form-select">
+                    </select>
+                </div>
+
+                <!-- 3. Pilih Waktu (Otomatis Muncul setelah Kapster dipilih) -->
+                <div id="waktuSection" class="col-md-6" style="display: none;">
+                    <label class="form-label fw-bold">3. Pilih Tanggal & Jam</label>
+                    <div class="d-flex gap-2">
+                        <input type="date" id="bookDate" class="form-control">
+                        <select id="bookTime" class="form-select">
+                            <option value="10:00">10:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="16:00">16:00</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <button type="submit" id="btnKonfirmasi" class="btn btn-primary w-100 py-2 fw-bold" style="display: none;">
+                        KONFIRMASI PESANAN
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div class="modal fade" id="modalPayment" data-bs-backdrop="static" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark text-white">
+                        <h5 class="modal-title">Rincian & Pembayaran</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-secondary shadow-sm">
+                            <h6><strong>Ringkasan Pesanan:</strong></h6>
+                            <div id="summaryContent" class="small"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Pilih Metode Transfer:</label>
+                            <p class="mb-0 small text-muted">BCA: 12345678 (A/N Cutz Barbershop)</p>
+                        </div>
+
+                        <hr>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Upload Bukti Bayar (Gambar)</label>
+                            <input type="file" id="buktiBayarFile" class="form-control" accept="image/*" required>
+                            <div class="form-text text-danger">*Wajib upload foto struk/transfer</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" id="btnFinalSubmit" class="btn btn-success px-4 fw-bold">KIRIM BOOKING</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="fw-bold mb-0">Daftar Reservasi Masuk 📝</h4>
+            <button class="btn btn-outline-secondary btn-sm" onclick="refreshBookingTable()">🔄 Refresh</button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle" id="bookingTable">
+                <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Layanan & Kapster</th>
+                    <th>Jadwal</th>
+                    <th>Total</th>
+                    <th>Pembayaran</th>
+                    <th class="text-center">Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Data otomatis masuk di sini -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--END BOOKINGS-->
+</div>
+
+<!-- Bootstrap Bundle JS (Popovers, Tooltips) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
