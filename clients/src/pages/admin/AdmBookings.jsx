@@ -9,7 +9,7 @@ const AdmBookings = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
-    const BASE_URL = 'http://localhost:4000/api/book';
+    const BASE_URL = '/api/book';
 
     const fetchBookings = async (query = '') => {
         try {
@@ -35,7 +35,7 @@ const AdmBookings = () => {
         if (!window.confirm(`Yakin ingin mengubah status booking #${id} menjadi ${statusBooking}?`)) return;
 
         try {
-            const res = await fetch(`http://localhost:4000/api/book/${id}`, {
+            const res = await fetch(`/api/book/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -143,7 +143,7 @@ const AdmBookings = () => {
                                     </td>
                                     <td className='py-4 border-b'>
                                         {item.Bukti ? (
-                                            <a href={`http://localhost:4000/upload/${item.Bukti}`} target="_blank"
+                                            <a href={`/upload/${item.Bukti}`} target="_blank"
                                                className='text-blue-500 underline text-sm'>Lihat Foto</a>
                                         ) : 'Tidak ada'}
                                     </td>

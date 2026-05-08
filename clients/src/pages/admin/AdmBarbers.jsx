@@ -19,7 +19,7 @@ const AdmBarbers = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
 
-    const BASE_URL = 'http://localhost:4000/api/barbers';
+    const BASE_URL = '/api/barbers';
 
     // 1. Ambil Data
     const fetchKaps = async (query = '') => {

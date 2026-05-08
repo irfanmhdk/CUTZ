@@ -9,7 +9,7 @@ const Layanan = () => {
     const [selectedSvc, setSelectedSvc] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:4000/api/serv').then(r => r.json()).then(d => setServices(d));
+        fetch('/api/serv').then(r => r.json()).then(d => setServices(d));
     }, []);
 
     return (

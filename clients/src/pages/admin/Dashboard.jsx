@@ -11,7 +11,7 @@ const Dashboard = () => {
     // 2. Fungsi untuk mengambil data dari backend
     const fetchBookings = async () => {
         try {
-            const response = await fetch('http://localhost:4000/api/book'); // Sesuaikan URL API Anda
+            const response = await fetch('/api/book'); // Sesuaikan URL API Anda
             const data = await response.json();
             setBookings(data);
             setLoading(false);
@@ -23,7 +23,7 @@ const Dashboard = () => {
 
     const fetchServ = async () => {
         try {
-            const response = await fetch('http://localhost:4000/api/serv'); // Sesuaikan URL API Anda
+            const response = await fetch('/api/serv'); // Sesuaikan URL API Anda
             const data = await response.json();
             setServ(data);
             setLoading(false);
@@ -35,7 +35,7 @@ const Dashboard = () => {
 
     const fetchKaps = async () => {
         try {
-            const response = await fetch('http://localhost:4000/api/barbers'); // Sesuaikan URL API Anda
+            const response = await fetch('/api/barbers'); // Sesuaikan URL API Anda
             const data = await response.json();
             setKaps(data);
             setLoading(false);
@@ -277,7 +277,7 @@ const Dashboard = () => {
                                     </td>
                                     <td className='py-4 border-b'>
                                         {item.Bukti ? (
-                                            <a href={`http://localhost:4000/upload/${item.Bukti}`} target="_blank"
+                                            <a href={`/upload/${item.Bukti}`} target="_blank"
                                                className='text-blue-500 underline text-sm'>Lihat Foto</a>
                                         ) : 'Tidak ada'}
                                     </td>

@@ -7,7 +7,7 @@ const AdmBarbershop = () => {
 
     const fetchBars = async () => {
         try {
-            const response = await fetch('http://localhost:4000/api/barbershop'); // Sesuaikan URL API Anda
+            const response = await fetch('/api/barbershop'); // Sesuaikan URL API Anda
             const data = await response.json();
             setBars(data);
             setLoading(false);

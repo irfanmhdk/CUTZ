@@ -18,7 +18,7 @@ const AdmJadwal = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 7;
 
-    const BASE_URL = 'http://localhost:4000/api/jadwal';
+    const BASE_URL = '/api/jadwal';
 
     // 1. Ambil Data
     const fetchJad = async (query = '') => {

@@ -21,7 +21,7 @@ const AdmUser = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
 
-    const BASE_URL = 'http://localhost:4000/api/users';
+    const BASE_URL = '/api/users';
 
     // 1. READ: Ambil Data
     const fetchUser = async (query = '') => {

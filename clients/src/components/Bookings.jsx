@@ -32,7 +32,7 @@ const Bookings = () => {
         if (!id) return;
 
         if (!user?.Users_id) return;
-        fetch(`http://localhost:4000/api/book/${id}?role=${user.Role}`)
+        fetch(`/api/book/${id}?role=${user.Role}`)
             .then(res => res.json())
             .then(data => { setMyBookings(Array.isArray(data) ? data : [])
                 setCurrentPage(1);})
@@ -41,7 +41,7 @@ const Bookings = () => {
 
     useEffect(() => {
         // Fetch layanan (Services)
-        fetch('http://localhost:4000/api/serv')
+        fetch('/api/serv')
             .then(r => {
                 if (!r.ok) throw new Error("Gagal connect ke server");
                 return r.json();
@@ -63,7 +63,7 @@ const Bookings = () => {
     const handleSelesai = (id) => {
         if (!window.confirm("Tandai layanan ini telah selesai?")) return;
 
-        fetch(`http://localhost:4000/api/book/${id}`, {
+        fetch(`/api/book/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

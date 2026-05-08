@@ -28,9 +28,9 @@ const AdmOrderBook = () => {
         setLoading(true);
         try {
             const [resUser, resSvc, resBook] = await Promise.all([
-                fetch('http://localhost:4000/api/users'),
-                fetch('http://localhost:4000/api/serv'),
-                fetch('http://localhost:4000/api/book')
+                fetch('/api/users'),
+                fetch('/api/serv'),
+                fetch('/api/book')
             ]);
             setUsers(await resUser.json());
             setServices(await resSvc.json());
@@ -55,7 +55,7 @@ const AdmOrderBook = () => {
         setFormData(prev => ({...prev, date: selectedDate, time: ''}));
 
         try {
-            const res = await fetch(`http://localhost:4000/api/jadwal?hari=${hariInput}`);
+            const res = await fetch(`/api/jadwal?hari=${hariInput}`);
             const data = await res.json();
             const jadwal = Array.isArray(data) ? data.find(i => i.Hari === hariInput) : data;
 
@@ -92,7 +92,7 @@ const AdmOrderBook = () => {
         bodyData.append('bukti', formData.file);
 
         try {
-            const res = await fetch('http://localhost:4000/api/book', {method: 'POST', body: bodyData});
+            const res = await fetch('/api/book', {method: 'POST', body: bodyData});
             if (res.ok) {
                 alert("Booking Berhasil!");
                 setFormData({userId: '', serviceId: '', barberId: '', date: '', time: '', file: null});
@@ -159,7 +159,7 @@ const AdmOrderBook = () => {
                                         date: '',
                                         time: ''
                                     });
-                                    fetch('http://localhost:4000/api/barbers').then(r => r.json()).then(d => setBarbers(d));
+                                    fetch('/api/barbers').then(r => r.json()).then(d => setBarbers(d));
                                 }}>
                                     <option value="">-- Pilih --</option>
                                     {services.map(s => <option key={s.Services_id}

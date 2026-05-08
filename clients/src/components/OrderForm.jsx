@@ -11,7 +11,7 @@ const OrderForm = ({ service, onClose }) => {
     const currentUser = JSON.parse(localStorage.getItem('user'));
 
     useEffect(() => {
-        fetch('http://localhost:4000/api/barbers').then(r => r.json()).then(d => setBarbers(d));
+        fetch('/api/barbers').then(r => r.json()).then(d => setBarbers(d));
     }, []);
 
     const handleDateChange = async (e) => {
@@ -21,7 +21,7 @@ const OrderForm = ({ service, onClose }) => {
         setFormData(prev => ({...prev, date: selectedDate, time: ''}));
 
         try {
-            const res = await fetch(`http://localhost:4000/api/jadwal?hari=${hariInput}`);
+            const res = await fetch(`/api/jadwal?hari=${hariInput}`);
             const data = await res.json();
             const jadwal = Array.isArray(data) ? data.find(i => i.Hari === hariInput) : data;
 
@@ -64,7 +64,7 @@ const OrderForm = ({ service, onClose }) => {
         bodyData.append('bukti', formData.file);
 
         try {
-            const res = await fetch('http://localhost:4000/api/book', {
+            const res = await fetch('/api/book', {
                 method: 'POST',
                 body: bodyData,
             });
