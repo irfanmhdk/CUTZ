@@ -11,6 +11,16 @@ export const getBook = async (req, res) => {
     }
 }
 
+export const getCekBook = async (res) => {
+    try{
+        const data = await Book.getCekBook();
+
+        return res.status(200).json(data);
+    } catch (error) {
+        res.status(500).json({ pesan: 'Gagal mengambil data', error: error.message });
+    }
+}
+
 export const getMyBook = async (req, res) => {
     try{
         const { id } = req.params;

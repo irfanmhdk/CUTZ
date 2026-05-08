@@ -6,6 +6,11 @@ export const getBook = async (s = '') => {
         return rows;
 }
 
+export const getCekBook = async () => {
+    const [rows] = await db.promise().query(`SELECT * FROM VBookings WHERE Status_bookings = 'Pending' AND Status_bookings = 'Success' ORDER BY Waktu_mulai DESC`);
+    return rows;
+}
+
 export const getMyBook = async (id, role) => {
     const cek = (role === 'Barber') ? 'Barbers_id' : 'Users_id';
 

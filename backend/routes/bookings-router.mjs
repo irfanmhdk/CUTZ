@@ -1,7 +1,7 @@
 import express from "express";
 import multer from "multer";
 import path from "path";
-import {getBook, getMyBook, inBook, upBook} from "../controller/controller-bookings.mjs";
+import {getBook, getCekBook, getMyBook, inBook, upBook} from "../controller/controller-bookings.mjs";
 
 const Book = express.Router();
 
@@ -31,6 +31,7 @@ const upload = multer({
 });
 
 Book.get('/', getBook);
+Book.get('/', getCekBook);
 Book.get('/:id', getMyBook);
 Book.post('/', upload.single('bukti'), inBook);
 Book.put('/:id', upBook);

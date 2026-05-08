@@ -11,9 +11,9 @@ const AdmBookings = () => {
     const itemsPerPage = 5;
     const BASE_URL = '/api/book';
 
-    const fetchBookings = async (query = '') => {
+    const fetchBookings = async () => {
         try {
-            const url = query ? `${BASE_URL}?q=${encodeURIComponent(query)}` : BASE_URL;
+            const url = BASE_URL;
             const response = await fetch(url);
 
             if (!response.ok) throw new Error('Could not find Bookings');
