@@ -26,52 +26,52 @@ function App() {
   const user = JSON.parse(localStorage.getItem('user'));
 
   return (
-      <Router>
-          <Routes>
-              {/* --- RUTE CUSTOMER --- */}
-              <Route path="/" element={
-                  <>
-                      <Navbar setShowLogin={setShowLogin}/>
-                      <Home />
-                  </>
-              } />
+          <Router basename="/cutz">
+              <Routes>
+                  {/* --- RUTE CUSTOMER --- */}
+                  <Route path="/" element={
+                      <>
+                          <Navbar setShowLogin={setShowLogin}/>
+                          <Home />
+                      </>
+                  } />
 
-              <Route path="/Bookings" element={
-                  <div className="flex flex-col min-h-screen">
-                      <Navbar setShowLogin={setShowLogin}/>
+                  <Route path="/Bookings" element={
+                      <div className="flex flex-col min-h-screen">
+                          <Navbar setShowLogin={setShowLogin}/>
 
-                      <main className="flex-grow">
-                          <Bookings />
-                      </main>
+                          <main className="flex-grow">
+                              <Bookings />
+                          </main>
 
-                      <Footer />
-                  </div>
-              } />
+                          <Footer />
+                      </div>
+                  } />
 
-              {/* --- RUTE ADMIN --- */}
-              <Route
-                  path="/admin"
-                  element={
-                      user && (user.Role === 'Owner' || user.Role === 'Admin')
-                          ? <Admin />
-                          : <Navigate to="/" replace />
-                  }
-              >
+                  {/* --- RUTE ADMIN --- */}
+                  <Route
+                      path="/admin"
+                      element={
+                          user && (user.Role === 'Owner' || user.Role === 'Admin')
+                              ? <Admin />
+                              : <Navigate to="/" replace />
+                      }
+                  >
 
-                  <Route index element={<Dashboard />} />
-                  <Route path="bookings" element={<AdmBookings />} />
-                  <Route path="services" element={<AdmLayanan />} />
-                  <Route path="barbers" element={<AdmBarbers />} />
-                  <Route path="barbershop" element={<AdmBarbershop />} />
-                  <Route path="jadwal" element={<AdmJadwal />} />
-                  <Route path="user" element={<AdmUser />} />
-                  <Route path="order" element={<AdmOrderBook />} />
+                      <Route index element={<Dashboard />} />
+                      <Route path="bookings" element={<AdmBookings />} />
+                      <Route path="services" element={<AdmLayanan />} />
+                      <Route path="barbers" element={<AdmBarbers />} />
+                      <Route path="barbershop" element={<AdmBarbershop />} />
+                      <Route path="jadwal" element={<AdmJadwal />} />
+                      <Route path="user" element={<AdmUser />} />
+                      <Route path="order" element={<AdmOrderBook />} />
 
-              </Route>
-          </Routes>
+                  </Route>
+              </Routes>
 
-          {showLogin && <Login setShowLogin={setShowLogin} />}
-      </Router>
+              {showLogin && <Login setShowLogin={setShowLogin} />}
+          </Router>
   )
 }
 
